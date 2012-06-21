@@ -4,7 +4,7 @@
   <title><![CDATA[liZhang's Blogs]]></title>
   <link href="http://uudui.github.com/atom.xml" rel="self"/>
   <link href="http://uudui.github.com/"/>
-  <updated>2012-06-21T15:16:36+08:00</updated>
+  <updated>2012-06-21T15:51:53+08:00</updated>
   <id>http://uudui.github.com/</id>
   <author>
     <name><![CDATA[张利]]></name>
@@ -18,8 +18,10 @@
     <link href="http://uudui.github.com/blog/2012/06/21/hello-octopress/"/>
     <updated>2012-06-21T11:47:00+08:00</updated>
     <id>http://uudui.github.com/blog/2012/06/21/hello-octopress</id>
-    <content type="html"><![CDATA[<p>测试一下在Octopress下写文章，主要看看对代码的一些支持:
-  <ul style="margin-left:30px;">
+    <content type="html"><![CDATA[<p>
+  <h3>测试代码语法高亮</h3>
+  <span>测试一下在Octopress下写文章，主要看看对代码的一些支持:</span>
+  <ol style="margin-left:30px;">
     <li>
       <span>测试对ruby代码的高亮显示效果：</span><br />
       <figure class='code'><figcaption><span>ruby test  (test.rb)</span> <a href='http://uudui.github.com/downloads/code/ruby/test.rb'>download</a></figcaption>
@@ -142,7 +144,14 @@
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
     </li>
-  </ul>
+  </ol>
+  <!-- more -->
+</p>
+
+
+<p>
+  <h3>小结：</h3>
+  <span>很好用的产品，虽然刚开始体验会有些许的不适应，我相信一旦你体验了估计会爱不释手！开始我的Octopress记录历程吧&#8230;&#8230;.</span>
 </p>
 
 ]]></content>
