@@ -9,7 +9,7 @@
   <meta name="author" content="张利">
 
   
-  <meta name="description" content="问题分析： 导出的数据需要保留原有的样式； 关于引入css和图片等资源文件的路径问题； 项目中一个页面使用列太多的render，format变列是否意味着要添加对应的.pdf的视图模板文件 解决思路： < ">
+  <meta name="description" content="问题分析： 导出的数据需要保留原有的样式； 关于引入css和图片等资源文件的路径问题； 项目中一个页面使用列太多的render，format变列是否意味着要添加对应的.pdf的视图模板文件 解决思路： 对与问题一和二而言无非是引入对应的css文件，对于已经存在的的资源文件可以直接用， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -96,21 +96,48 @@
   <div class="entry-content"><h2>问题分析：</h2>
 
 
-<p>
-  <ol>
-    <li>导出的数据需要保留原有的样式；</li>
-    <li>关于引入css和图片等资源文件的路径问题；</li>
-    <li>项目中一个页面使用列太多的<code>render</code>，<code>format</code>变列是否意味着要添加对应的.pdf的视图模板文件</li>
-  </ol>
-</p>
+<ol style="margin-left:30px;">
+  <li>导出的数据需要保留原有的样式；</li>
+  <li>关于引入css和图片等资源文件的路径问题；</li>
+  <li>项目中一个页面使用列太多的<code>render</code>，<code>format</code>变列是否意味着要添加对应的.pdf的视图模板文件</li>
+</ol>
 
 
 <h2>解决思路：</h2>
 
 
-<p>
-  <
-</p>
+<ul style="margin-left:30px;">
+  <li>
+    <span>对与问题一和二而言无非是引入对应的css文件，对于已经存在的的资源文件可以直接用，但引入方式有所不同,可用函数<code>wicked_pdf_stylesheet_link_tag(*sources)</code>,该helper方法的具体实现如下：</span><br/>
+    <figure class='code'><figcaption><span>add css file  (wicked_pdf_helpers.rb)</span> <a href='/downloads/code/ruby/wicked_pdf_helpers.rb'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">wicked_pdf_stylesheet_link_tag</span><span class="p">(</span><span class="o">*</span><span class="n">sources</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">css_dir</span> <span class="o">=</span> <span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">,</span><span class="s1">&#39;stylesheets&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">sources</span><span class="o">.</span><span class="n">collect</span> <span class="p">{</span> <span class="o">|</span><span class="n">source</span><span class="o">|</span>
+</span><span class='line'>    <span class="s2">&quot;&lt;style type=&#39;text/css&#39;&gt;</span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">css_dir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">source</span><span class="o">+</span><span class="s1">&#39;.css&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2">&lt;/style&gt;&quot;</span>
+</span><span class='line'>  <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">html_safe</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure><br/>
+    <span>当然也可以在对应的模板文件中加入对应的标签写自己的css样式，和html文件中没任何区别。</span>
+  </li>
+  <li>
+    <span>对于问题三中存在的问题，也许你会说也不算问题，因为完全不算时难题：<br/>
+      1、可以选择不用原有的文件，再创建一套模板即可；<br/>
+      2、可以选择修改原有的<code>render</code>;<br/>
+      对于方式一工作量比较大，要维护两套模板，很难确定两者的一致性；<br>
+      对于方式二写太死了，假设项目在后期换用haml模板，而非html，太不灵活。<br/>
+      经过google和自己的试验，找到列更好的解决方式，先贴代码：
+      File /home/ironmine/app_code/octopress/source/downloads/code/ruby/with_form.rb could not be found<br/>
+    </span>
+  </li>
+</ul>
+
+
 
 </div>
   
