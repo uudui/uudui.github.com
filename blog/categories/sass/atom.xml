@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[liZhang's Blogs]]></title>
-  <link href="http://uudui.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: sass | liZhang's Blogs]]></title>
+  <link href="http://uudui.github.com/blog/categories/sass/atom.xml" rel="self"/>
   <link href="http://uudui.github.com/"/>
   <updated>2012-06-21T15:16:36+08:00</updated>
   <id>http://uudui.github.com/</id>
@@ -22,7 +22,7 @@
   <ul style="margin-left:30px;">
     <li>
       <span>测试对ruby代码的高亮显示效果：</span><br />
-      <figure class='code'><figcaption><span>ruby test  (test.rb)</span> <a href='http://uudui.github.com/downloads/code/ruby/test.rb'>download</a></figcaption>
+      <div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>ruby test  (test.rb)</span> <a href='/downloads/code/ruby/test.rb'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -45,11 +45,11 @@
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'>  <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/url\([&#39;&quot;](.+)[&#39;&quot;]\)(.+)/</span><span class="p">,</span><span class="sx">%[url(&quot;</span><span class="si">#{</span><span class="n">wicked_pdf_image_location</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">)</span><span class="si">}</span><span class="sx">&quot;)\\2]</span><span class="p">)</span><span class="o">.</span><span class="n">html_safe</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
     </li>
     <li>
       <span>测试对js代码的高亮支持：</span><br />
-      <figure class='code'><figcaption><span>validate the login form  (validation.js)</span> <a href='http://uudui.github.com/downloads/code/js/validation.js'>download</a></figcaption>
+      <div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>validate the login form  (validation.js)</span> <a href='/downloads/code/js/validation.js'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -140,7 +140,7 @@
 </span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#user-name&quot;</span><span class="p">).</span><span class="nx">keypress</span><span class="p">(</span><span class="nx">Validation</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">usernameKeyPress</span><span class="p">);</span>
 </span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#user-email&quot;</span><span class="p">).</span><span class="nx">keypress</span><span class="p">(</span><span class="nx">Validation</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">emailKeyPress</span><span class="p">);</span>
 </span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
     </li>
   </ul>
 </p>
