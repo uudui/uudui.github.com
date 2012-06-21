@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>liZhang's Blogs</title>
+  <title>在rails项目中使用wicked_pdf进行pdf格式数据导出心得 - liZhang's Blogs</title>
   <meta name="author" content="张利">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://uudui.github.com/">
+  <link rel="canonical" href="http://uudui.github.com/blog/2012/06/21/zai-railsxiang-mu-zhong-shi-yong-wicked-pdfjin-xing-pdfge-shi-shu-ju-dao-chu-xin-de/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,15 +62,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/06/21/zai-railsxiang-mu-zhong-shi-yong-wicked-pdfjin-xing-pdfge-shi-shu-ju-dao-chu-xin-de/">在rails项目中使用wicked_pdf进行pdf格式数据导出心得</a></h1>
+      <h1 class="entry-title">在rails项目中使用wicked_pdf进行pdf格式数据导出心得</h1>
     
     
       <p class="meta">
@@ -93,7 +90,7 @@
   </header>
 
 
-  <div class="entry-content"><h2>问题分析：</h2>
+<div class="entry-content"><h2>问题分析：</h2>
 
 
 <p>
@@ -113,22 +110,16 @@
 </p>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/21/hello-octopress/">Hello Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">张利</span></span>
+
+      
 
 
 
@@ -140,61 +131,40 @@
   
 
 
-<time datetime="2012-06-21T11:47:00+08:00" pubdate data-updated="true">Jun 21<span>st</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-06-21T22:13:00+08:00" pubdate data-updated="true">Jun 21<span>st</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rails/'>rails</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>
-  <h3>测试代码语法高亮</h3>
-  <span>测试一下在Octopress下写文章，主要看看对代码的一些支持:</span>
-  <ol style="margin-left:30px;">
-    <li>
-      <span>测试对ruby代码的高亮显示效果：</span><br />
-      <figure class='code'><figcaption><span>ruby test  (test.rb)</span> <a href='/downloads/code/ruby/test.rb'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#测试注释</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">wicked_pdf_stylesheet_link_tag</span><span class="p">(</span><span class="o">*</span><span class="n">sources</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">sources</span><span class="o">.</span><span class="n">collect</span> <span class="p">{</span> <span class="o">|</span><span class="n">source</span><span class="o">|</span>
-</span><span class='line'>    <span class="n">asset</span> <span class="o">=</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">find_asset</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">source</span><span class="si">}</span><span class="s2">.css&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">asset</span><span class="o">.</span><span class="n">nil?</span>
-</span><span class='line'>      <span class="k">raise</span> <span class="s2">&quot;could not find asset for </span><span class="si">#{</span><span class="n">source</span><span class="si">}</span><span class="s2">.css&quot;</span>
-</span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>      <span class="s2">&quot;&lt;style type=&#39;text/css&#39;&gt;</span><span class="si">#{</span><span class="n">asset</span><span class="o">.</span><span class="n">body</span><span class="si">}</span><span class="s2">&lt;/style&gt;&quot;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/url\([&#39;&quot;](.+)[&#39;&quot;]\)(.+)/</span><span class="p">,</span><span class="sx">%[url(&quot;</span><span class="si">#{</span><span class="n">wicked_pdf_image_location</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">)</span><span class="si">}</span><span class="sx">&quot;)\\2]</span><span class="p">)</span><span class="o">.</span><span class="n">html_safe</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-    </li>
-    </div>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://uudui.github.com/blog/2012/06/21/zai-railsxiang-mu-zhong-shi-yong-wicked-pdfjin-xing-pdfge-shi-shu-ju-dao-chu-xin-de/" data-via="uudui" data-counturl="http://uudui.github.com/blog/2012/06/21/zai-railsxiang-mu-zhong-shi-yong-wicked-pdfjin-xing-pdfge-shi-shu-ju-dao-chu-xin-de/" >Tweet</a>
   
   
-    <footer>
-      <a rel="full-article" href="/blog/2012/06/21/hello-octopress/">Read on &rarr;</a>
-    </footer>
+  <div class="g-plusone" data-size="medium"></div>
   
-
-
-    </article>
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/21/hello-octopress/" title="Previous Post: Hello Octopress">&laquo; Hello Octopress</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -215,7 +185,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/uudui">@uudui</a> on GitHub
@@ -245,7 +215,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -264,6 +234,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

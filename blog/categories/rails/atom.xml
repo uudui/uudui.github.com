@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | liZhang's Blogs]]></title>
+  <link href="http://uudui.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://uudui.github.com/"/>
+  <updated>2012-06-21T22:34:18+08:00</updated>
+  <id>http://uudui.github.com/</id>
+  <author>
+    <name><![CDATA[张利]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[在rails项目中使用wicked_pdf进行pdf格式数据导出心得]]></title>
+    <link href="http://uudui.github.com/blog/2012/06/21/zai-railsxiang-mu-zhong-shi-yong-wicked-pdfjin-xing-pdfge-shi-shu-ju-dao-chu-xin-de/"/>
+    <updated>2012-06-21T22:13:00+08:00</updated>
+    <id>http://uudui.github.com/blog/2012/06/21/zai-railsxiang-mu-zhong-shi-yong-wicked-pdfjin-xing-pdfge-shi-shu-ju-dao-chu-xin-de</id>
+    <content type="html"><![CDATA[<h2>问题分析：</h2>
+
+
+<p>
+  <ol>
+    <li>导出的数据需要保留原有的样式；</li>
+    <li>关于引入css和图片等资源文件的路径问题；</li>
+    <li>项目中一个页面使用列太多的<code>render</code>，<code>format</code>变列是否意味着要添加对应的.pdf的视图模板文件</li>
+  </ol>
+</p>
+
+
+<h2>解决思路：</h2>
+
+
+<p>
+  <
+</p>
+
+]]></content>
+  </entry>
+  
+</feed>
