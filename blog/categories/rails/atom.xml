@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | liZhang's Blogs]]></title>
   <link href="http://uudui.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://uudui.github.com/"/>
-  <updated>2012-06-21T23:02:37+08:00</updated>
+  <updated>2012-06-21T23:04:47+08:00</updated>
   <id>http://uudui.github.com/</id>
   <author>
     <name><![CDATA[张利]]></name>
@@ -47,7 +47,7 @@
 </span><span class='line'>    <span class="s2">&quot;&lt;style type=&#39;text/css&#39;&gt;</span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">css_dir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">source</span><span class="o">+</span><span class="s1">&#39;.css&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2">&lt;/style&gt;&quot;</span>
 </span><span class='line'>  <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">html_safe</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div><br/>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
     <span>当然也可以在对应的模板文件中加入对应的标签写自己的css样式，和html文件中没任何区别。</span>
   </li>
   <li>
@@ -57,7 +57,40 @@
       对于方式一工作量比较大，要维护两套模板，很难确定两者的一致性；<br>
       对于方式二写太死了，假设项目在后期换用haml模板，而非html，太不灵活。<br/>
       经过google和自己的试验，找到列更好的解决方式，先贴代码：
-      File /home/ironmine/app_code/octopress/source/downloads/code/ruby/with_form.rb could not be found<br/>
+      <div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>custom the format  (with_format.rb)</span> <a href='/downloads/code/ruby/with_format.rb'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#def with_format(format, &amp;block)</span>
+</span><span class='line'>  <span class="c1">#  old_format = @template_format</span>
+</span><span class='line'>  <span class="c1">#  @template_format = format</span>
+</span><span class='line'>  <span class="c1">#  result = block.call</span>
+</span><span class='line'>  <span class="c1">#  @template_format = old_format</span>
+</span><span class='line'>  <span class="c1">#  puts &quot;======================#{result}========================&quot;</span>
+</span><span class='line'>  <span class="c1">#  return result</span>
+</span><span class='line'>  <span class="c1">#end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">with_format</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">old_formats</span> <span class="o">=</span> <span class="n">formats</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">formats</span> <span class="o">=</span> <span class="o">[</span><span class="nb">format</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">block</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">formats</span> <span class="o">=</span> <span class="n">old_formats</span>
+</span><span class='line'>    <span class="kp">nil</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div><br/>
     </span>
   </li>
 </ul>
