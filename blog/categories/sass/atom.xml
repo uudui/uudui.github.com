@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sass | liZhang's Blogs]]></title>
   <link href="http://uudui.github.com/blog/categories/sass/atom.xml" rel="self"/>
   <link href="http://uudui.github.com/"/>
-  <updated>2012-06-21T15:51:53+08:00</updated>
+  <updated>2012-06-21T15:54:00+08:00</updated>
   <id>http://uudui.github.com/</id>
   <author>
     <name><![CDATA[张利]]></name>
@@ -49,6 +49,7 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
     </li>
+    <!-- more -->
     <li>
       <span>测试对js代码的高亮支持：</span><br />
       <div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>validate the login form  (validation.js)</span> <a href='/downloads/code/js/validation.js'>download</a></figcaption>
@@ -145,7 +146,7 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div>
     </li>
   </ol>
-  <!-- more -->
+
 </p>
 
 
