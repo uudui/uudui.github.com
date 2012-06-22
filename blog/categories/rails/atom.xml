@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | liZhang's Blogs]]></title>
   <link href="http://uudui.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://uudui.github.com/"/>
-  <updated>2012-06-21T23:04:47+08:00</updated>
+  <updated>2012-06-22T12:08:59+08:00</updated>
   <id>http://uudui.github.com/</id>
   <author>
     <name><![CDATA[张利]]></name>
@@ -24,7 +24,7 @@
 <ol style="margin-left:30px;">
   <li>导出的数据需要保留原有的样式；</li>
   <li>关于引入css和图片等资源文件的路径问题；</li>
-  <li>项目中一个页面使用列太多的<code>render</code>，<code>format</code>变列是否意味着要添加对应的.pdf的视图模板文件</li>
+  <li>项目中一个页面使用列太多的<code>render</code>，<code>format</code>变了是否意味着要添加对应的.pdf的视图模板文件</li>
 </ol>
 
 
@@ -34,8 +34,7 @@
 <ul style="margin-left:30px;">
   <li>
     <span>对与问题一和二而言无非是引入对应的css文件，对于已经存在的的资源文件可以直接用，但引入方式有所不同,可用函数<code>wicked_pdf_stylesheet_link_tag(*sources)</code>,该helper方法的具体实现如下：</span><br/>
-    <div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>add css file  (wicked_pdf_helpers.rb)</span> <a href='/downloads/code/ruby/wicked_pdf_helpers.rb'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -56,9 +55,8 @@
       2、可以选择修改原有的<code>render</code>;<br/>
       对于方式一工作量比较大，要维护两套模板，很难确定两者的一致性；<br>
       对于方式二写太死了，假设项目在后期换用haml模板，而非html，太不灵活。<br/>
-      经过google和自己的试验，找到列更好的解决方式，先贴代码：
-      <div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>custom the format  (with_format.rb)</span> <a href='/downloads/code/ruby/with_format.rb'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+      经过google和的试验，找到更好的解决方式，先贴代码：
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -73,24 +71,22 @@
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#def with_format(format, &amp;block)</span>
-</span><span class='line'>  <span class="c1">#  old_format = @template_format</span>
-</span><span class='line'>  <span class="c1">#  @template_format = format</span>
-</span><span class='line'>  <span class="c1">#  result = block.call</span>
-</span><span class='line'>  <span class="c1">#  @template_format = old_format</span>
-</span><span class='line'>  <span class="c1">#  puts &quot;======================#{result}========================&quot;</span>
-</span><span class='line'>  <span class="c1">#  return result</span>
-</span><span class='line'>  <span class="c1">#end</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#def with_format(format, &amp;block)</span>
+</span><span class='line'><span class="c1">#  old_format = @template_format</span>
+</span><span class='line'><span class="c1">#  @template_format = format</span>
+</span><span class='line'><span class="c1">#  result = block.call</span>
+</span><span class='line'><span class="c1">#  @template_format = old_format</span>
+</span><span class='line'><span class="c1">#  return result</span>
+</span><span class='line'><span class="c1">#end</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">with_format</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">old_formats</span> <span class="o">=</span> <span class="n">formats</span>
-</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">formats</span> <span class="o">=</span> <span class="o">[</span><span class="nb">format</span><span class="o">]</span>
-</span><span class='line'>    <span class="n">block</span><span class="o">.</span><span class="n">call</span>
-</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">formats</span> <span class="o">=</span> <span class="n">old_formats</span>
-</span><span class='line'>    <span class="kp">nil</span>
-</span><span class='line'>  <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div><br/>
+</span><span class='line'><span class="k">def</span> <span class="nf">with_format</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">old_formats</span> <span class="o">=</span> <span class="n">formats</span>
+</span><span class='line'>  <span class="nb">self</span><span class="o">.</span><span class="n">formats</span> <span class="o">=</span> <span class="o">[</span><span class="nb">format</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">block</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'>  <span class="nb">self</span><span class="o">.</span><span class="n">formats</span> <span class="o">=</span> <span class="n">old_formats</span>
+</span><span class='line'>  <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
     </span>
   </li>
 </ul>
