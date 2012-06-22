@@ -9,7 +9,7 @@
   <meta name="author" content="张利">
 
   
-  <meta name="description" content="问题分析： 导出的数据需要保留原有的样式； 关于引入css和图片等资源文件的路径问题； 项目中一个页面使用列太多的render，format变了是否意味着要添加对应的.pdf的视图模板文件 解决思路： 对与问题一和二而言无非是引入对应的css文件，对于已经存在的的资源文件可以直接用， &hellip;">
+  <meta name="description" content="问题分析： 导出的数据需要保留原有的样式； 关于引入css和图片等资源文件的路径问题； 项目中某些页面使用的render较多，format变了是否意味着要添加对应的.pdf的视图文件。 解决思路： 对与问题一和二而言无非是引入对应的css文件，对于已经存在的的资源文件可以直接用，但引入方式有所不同 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,7 +99,7 @@
 <ol style="margin-left:30px;">
   <li>导出的数据需要保留原有的样式；</li>
   <li>关于引入css和图片等资源文件的路径问题；</li>
-  <li>项目中一个页面使用列太多的<code>render</code>，<code>format</code>变了是否意味着要添加对应的.pdf的视图模板文件</li>
+  <li>项目中某些页面使用的<code>render</code>较多，<code>format</code>变了是否意味着要添加对应的.pdf的视图文件。</li>
 </ol>
 
 
@@ -164,6 +164,17 @@
 </span><span class='line'>  <span class="nb">self</span><span class="o">.</span><span class="n">formats</span> <span class="o">=</span> <span class="n">old_formats</span>
 </span><span class='line'>  <span class="kp">nil</span>
 </span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+在上述的代码中如果按照注解了的with_format写法，修改@template_format这个类变量程序仍然会报错，
+现在在format为pdf的视图文件中进行可以以如下形式render format为html、json、xml等的模板文件：
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%- with_format(&#39;html&#39;) do %&gt;</span>
+</span><span class='line'><span class="sx">  &lt;%= render(:partial =&gt; &#39;renderXXX&#39;) %&gt;</span>
+</span><span class='line'><span class="sx">&lt;%-</span> <span class="k">end</span> <span class="o">%&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
     </span>
